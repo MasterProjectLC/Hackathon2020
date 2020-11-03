@@ -84,12 +84,20 @@ func process_input(input):
 				return INSUFFICIENT
 		
 		"lyrics":
-			if count == 2 and args[1] == "help":
-				return helps[5]
+			if count == 2:
+				if args[1] == "help":
+					return helps[5]
+				else:
+					return INSUFFICIENT
 			
 			elif count == 3:
 				emit_signal("call_request", args[1], args[2])
-			
+		
+			elif count > 3:
+				for i in range(3, count):
+					args[2] += "_" + args[i]
+					
+				emit_signal("call_request", args[1], args[2])
 			else:
 				return INSUFFICIENT
 

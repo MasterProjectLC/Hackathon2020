@@ -12,8 +12,8 @@ func _on_request_completed(_result, response_code, _headers, body):
 		print(json.result["lyrics"])
 		emit_signal("return_value", json.result["lyrics"])
 	else:
-		print("Lyrics não encontradas =(")
-		emit_signal("return_value", "Lyrics não encontradas =(")
+		print("Letras não encontradas =(")
+		emit_signal("return_value", "Letras não encontradas =(")
 
 
 func ask(artist, title):
