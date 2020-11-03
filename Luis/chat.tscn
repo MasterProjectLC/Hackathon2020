@@ -1,0 +1,144 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Luis/chat.gd" type="Script" id=1]
+[ext_resource path="res://Luis/qwerty_flashlight_greybg.png" type="Texture" id=2]
+
+[node name="Master" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -412.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 612.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="qwerty_flashlight_greybg" type="Sprite" parent="."]
+position = Vector2( 538.453, 75.7946 )
+scale = Vector2( 0.0595215, 0.0595215 )
+texture = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_top = 542.0
+margin_right = 297.0
+margin_bottom = 600.0
+placeholder_text = "Digite um texto"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Calculadora" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Calculadora"]
+margin_right = 612.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="1" type="Button" parent="Calculadora"]
+margin_left = 20.0
+margin_top = 230.0
+margin_right = 60.0
+margin_bottom = 270.0
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="Button" parent="Calculadora"]
+margin_left = 75.0
+margin_top = 229.0
+margin_right = 115.0
+margin_bottom = 269.0
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="Button" parent="Calculadora"]
+margin_left = 134.0
+margin_top = 230.0
+margin_right = 174.0
+margin_bottom = 270.0
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Button" parent="Calculadora"]
+margin_left = 189.0
+margin_top = 229.0
+margin_right = 229.0
+margin_bottom = 269.0
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="Button" parent="Calculadora"]
+margin_left = 241.0
+margin_top = 229.0
+margin_right = 281.0
+margin_bottom = 269.0
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="6" type="Button" parent="Calculadora"]
+margin_left = 16.14
+margin_top = 284.154
+margin_right = 56.14
+margin_bottom = 324.154
+text = "6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="7" type="Button" parent="Calculadora"]
+margin_left = 75.3654
+margin_top = 281.497
+margin_right = 115.365
+margin_bottom = 321.497
+text = "7"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="8" type="Button" parent="Calculadora"]
+margin_left = 135.277
+margin_top = 283.912
+margin_right = 175.277
+margin_bottom = 323.912
+text = "8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="9" type="Button" parent="Calculadora"]
+margin_left = 190.088
+margin_top = 284.154
+margin_right = 230.088
+margin_bottom = 324.154
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="0" type="Button" parent="Calculadora"]
+margin_left = 243.899
+margin_top = 283.569
+margin_right = 283.899
+margin_bottom = 323.569
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
