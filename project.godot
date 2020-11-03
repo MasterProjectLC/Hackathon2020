@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Hackathon2020"
-run/main_scene="res://Scripts/Network.tscn"
+run/main_scene="res://Luis/chat.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=612
 
 [rendering]
 

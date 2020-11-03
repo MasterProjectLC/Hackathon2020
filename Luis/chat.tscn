@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Luis/chat.gd" type="Script" id=1]
+[ext_resource path="res://Luis/qwerty_flashlight_greybg.png" type="Texture" id=2]
+
+[node name="Master" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 612.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="qwerty_flashlight_greybg" type="Sprite" parent="."]
+position = Vector2( 538.453, 73.7946 )
+scale = Vector2( 0.0595215, 0.0595215 )
+texture = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_top = 542.0
+margin_right = 297.0
+margin_bottom = 600.0
+placeholder_text = "Digite um texto"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 301.682
+margin_top = 557.091
+margin_right = 412.682
+margin_bottom = 588.091
+text = "Pressione [enter]
+ para enviar"
+
+[node name="Qwerty" type="RichTextLabel" parent="."]
+margin_left = 2.0
+margin_right = 463.0
+margin_bottom = 40.0
+
+[node name="Fala" type="RichTextLabel" parent="."]
+margin_left = 2.0
+margin_top = 500.0
+margin_right = 296.0
+margin_bottom = 540.0
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
