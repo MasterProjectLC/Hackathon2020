@@ -1,12 +1,9 @@
-extends CanvasLayer
+extends HTTPRequest
 
 signal return_value
 
 func _ready():
-	$Requests.connect("request_completed", self, "_on_request_completed")
-
-func _on_Button_pressed():
-	$Requests.request("https://api.lyrics.ovh/v1/Coldplay/Paradise")
+	connect("request_completed", self, "_on_request_completed")
 
 
 func _on_request_completed(_result, response_code, _headers, body):
@@ -24,4 +21,8 @@ func ask(artist, title):
 	artist.replace(" ","_")
 	title.replace(" ","_")
 	
-	$Requests.request("https://api.lyrics.ovh/v1/" + artist + "/" + title)
+	request("https://api.lyrics.ovh/v1/" + artist + "/" + title)
+
+
+func _on_Chatbot_call_request(artist, title):
+	ask(artist, title)

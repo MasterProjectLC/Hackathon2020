@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Luis/chat.gd" type="Script" id=1]
 [ext_resource path="res://Luis/qwerty_flashlight_greybg.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Chatbot.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Requests.gd" type="Script" id=5]
 
 [node name="Master" type="Control"]
 anchor_right = 1.0
@@ -15,10 +17,14 @@ __meta__ = {
 margin_right = 612.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="qwerty_flashlight_greybg" type="Sprite" parent="."]
-position = Vector2( 538.453, 73.7946 )
-scale = Vector2( 0.0595215, 0.0595215 )
+position = Vector2( 557.463, 57.0608 )
+scale = Vector2( 0.249053, 0.263274 )
 texture = ExtResource( 2 )
 
 [node name="LineEdit" type="LineEdit" parent="."]
@@ -37,6 +43,9 @@ margin_right = 412.682
 margin_bottom = 588.091
 text = "Pressione [enter]
  para enviar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Qwerty" type="RichTextLabel" parent="."]
 margin_left = 2.0
@@ -45,7 +54,20 @@ margin_bottom = 40.0
 
 [node name="Fala" type="RichTextLabel" parent="."]
 margin_left = 2.0
-margin_top = 500.0
+margin_top = 283.0
 margin_right = 296.0
 margin_bottom = 540.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chatbot" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource( 5 )
+[connection signal="input" from="." to="Chatbot" method="_on_Master_input"]
 [connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="call_request" from="Chatbot" to="HTTPRequest" method="_on_Chatbot_call_request"]
+[connection signal="return_input" from="Chatbot" to="." method="add_backlog"]
+[connection signal="return_value" from="HTTPRequest" to="Chatbot" method="_on_HTTPRequest_return_value"]
